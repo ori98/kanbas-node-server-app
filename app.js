@@ -13,7 +13,9 @@ import UserRoutes from "./users/routes.js";
 
 // connecting to mongodb
 import mongoose from 'mongoose';
-mongoose.connect("mongodb://127.0.0.1:27017/kanbas-cs5610-fa23");
+const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas-cs5610-fa23'
+mongoose.connect(CONNECTION_STRING);
+// mongoose.connect("mongodb://127.0.0.1:27017/kanbas-cs5610-fa23");
 
 const app = express();
 app.use(express.json());
